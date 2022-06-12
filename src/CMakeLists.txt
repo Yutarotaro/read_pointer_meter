@@ -10,7 +10,7 @@ set(HEADERS
     # main.h
 )
 
-add_executable(Main
+add_executable(main
     ${SOURCES}
     ${HEADERS}
 )
@@ -19,8 +19,8 @@ add_executable(Main
 # For OpenCV
 find_package(OpenCV REQUIRED)
 if(OpenCV_FOUND)
-    target_include_directories(Main PUBLIC ${OpenCV_INCLUDE_DIRS})
-    target_link_libraries(Main ${OpenCV_LIBS})
+    target_include_directories(main PUBLIC ${OpenCV_INCLUDE_DIRS})
+    target_link_libraries(main ${OpenCV_LIBS})
 endif()
 
 
