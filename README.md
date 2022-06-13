@@ -12,3 +12,5 @@ cmake ..
 make -j4
 ./main
 ```
+
+なんか今$git submoduleがあんま動かなかったので、とりあえずしなくても大丈夫
