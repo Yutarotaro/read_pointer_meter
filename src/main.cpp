@@ -10,21 +10,19 @@
 
 using json = nlohmann::json;
 const std::string pictures_dir = "../../pictures/";
-json input_json();
+void input_json(json &params);
 
 int main() {
-  json params = input_json();
-  std::string target_image_number =
-      params["meter_params"]["target_image_number"].get<string>();
+  json params;
+  input_json(params);
 
   ///////////////////////// image input
   std::string template_image_path =
-      pictures_dir + "meter_template/tempbthesis2.png";
-  std::string target_image_path =
-      pictures_dir + "bthesis/roi/pic" + target_image_number + ".png";
+      params["meter_params"]["template_image_path"];
+  std::string target_image_path = params["meter_params"]["target_image_path"];
 
-  Image template_image(template_image_path);
-  Image target_image(target_image_path);
+  Image template_image(pictures_dir + template_image_path);
+  Image target_image(pictures_dir + target_image_path);
 
   //マッチングしやすくするための地味だけど大切な努力
   //処理するのはtarget_imageの方
@@ -83,10 +81,8 @@ int main() {
   return 0;
 }
 
-json input_json() {
+void input_json(json &params) {
   ///////////////////////// json input
   std::ifstream i("../setting.json");
-  json params;
   i >> params;
-  return params;
 }
