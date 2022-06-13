@@ -5,36 +5,38 @@
 #include <string>
 
 const std::string pictures_dir = "../../pictures/";
-
 std::string target_image_number = "185";
+
+std::string template_image_path =
+    pictures_dir + "meter_template/tempbthesis2.png";
+std::string target_image_path =
+    pictures_dir + "bthesis/roi/pic" + target_image_number + ".png";
 
 int main() {
 
   ///////////////////////// image input
-  std::string template_image_path =
-      pictures_dir + "meter_template/tempbthesis2.png";
   Image template_image(template_image_path);
-
-  std::string target_image_path =
-      pictures_dir + "bthesis/roi/pic" + target_image_number + ".png";
   Image target_image(target_image_path);
 
-  // template_imageとtarget_imageの大きさを揃える（その方がマッチングの精度が上がったので）
-  double rate =
-      std::max((double)template_image.image.cols / target_image.image.cols,
-               (double)template_image.image.rows / target_image.image.rows);
-  cv::resize(target_image.image, target_image.image, cv::Size(), rate, rate);
+  //マッチングしやすくするための地味だけど大切な努力
+  //処理するのはtarget_imageの方
+  target_image.preprocess(template_image);
 
+  //特徴点検出
   template_image.detectKeyPoints();
   target_image.detectKeyPoints();
 
-  // for visualization
-  //  template_image.show();
-  //  target_image.show();
-  /////////////////////////
+  // Homography推定 template から target へのHomography
+  cv::Mat H = getHomography(template_image, target_image);
 
-  getHomography(template_image, target_image);
+  //推定したHomographyの逆行列でtarget_imageを射影変換し、template_imageと視点を揃える
+  Image warped_target_image(cv::Mat::zeros(target_image.image.rows,
+                                           target_image.image.cols, CV_8UC3));
+  cv::warpPerspective(target_image.image, warped_target_image.image, H.inv(),
+                      warped_target_image.image.size());
+
+  //////適応的2値化
+
   cv::waitKey();
-
   return 0;
 }
