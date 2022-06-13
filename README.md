@@ -18,6 +18,6 @@ make -j4
 ## If run on Docker
 
 ```bash
-docker build -t read_pointer_meter .
-docker run -it --net host -e DISPLAY=host.docker.internal:0 -v /path/to/src:/read_pointer_meter bash
+docker build -t pointer_meter .
+docker run -it --net host -e DISPLAY=host.docker.internal:0 -v /path/to/src:/read_pointer_meter pointer_meter
 ``` 
