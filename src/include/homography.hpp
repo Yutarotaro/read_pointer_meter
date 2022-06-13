@@ -42,7 +42,7 @@ cv::Mat getHomography(Image Src1, Image Src2) {
   // RANSACで使われた対応点のみ抽出
   std::vector<cv::DMatch> inlierMatch;
 
-  for (size_t i = 0; i < masks.rows; ++i) {
+  for (int i = 0; i < masks.rows; ++i) {
     uchar *inlier = masks.ptr<uchar>(i);
     if (inlier[0] == 1) {
       inlierMatch.push_back(goodMatch[i]);
