@@ -7,14 +7,14 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 # Create Main project
 set(SOURCES
-    main.cpp
+  main.cpp external/AdaptiveIntegralThresholding/threshold.cpp
 )
 
 add_executable(main
     ${SOURCES}
 )
 
-target_include_directories(main PRIVATE include)
+target_include_directories(main PUBLIC include external/AdaptiveIntegralThresholding external)
 
 
 # For OpenCV

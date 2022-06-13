@@ -9,7 +9,7 @@ class Image {
   std::string name;
 
 public:
-  cv::Mat image, original;
+  cv::Mat image, original, gray_image;
   // Homography計算用
   std::vector<cv::KeyPoint> keypoints;
   cv::Mat descriptors;
@@ -58,5 +58,9 @@ public:
     cv::filter2D(image, image, -1, kernel, cv::Point(-1, -1), 0,
                  cv::BORDER_DEFAULT);
     ////////////////////////////////////////
+  }
+
+  void cvtToGray(cv::Mat img) {
+    cv::cvtColor(img, gray_image, cv::COLOR_BGR2GRAY);
   }
 };
