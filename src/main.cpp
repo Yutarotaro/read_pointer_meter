@@ -9,15 +9,11 @@
 #include <string>
 
 using json = nlohmann::json;
-
 const std::string pictures_dir = "../../pictures/";
+json input_json();
 
 int main() {
-  ///////////////////////// json input
-  std::ifstream i("../setting.json");
-  json params;
-  i >> params;
-
+  json params = input_json();
   std::string target_image_number =
       params["meter_params"]["target_image_number"].get<string>();
 
@@ -85,4 +81,12 @@ int main() {
 
   cv::waitKey();
   return 0;
+}
+
+json input_json() {
+  ///////////////////////// json input
+  std::ifstream i("../setting.json");
+  json params;
+  i >> params;
+  return params;
 }
