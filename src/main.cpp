@@ -6,16 +6,17 @@
 
 const std::string pictures_dir = "../../pictures/";
 
-std::string target_image_number = "94";
+std::string target_image_number = "185";
 
 int main() {
 
   ///////////////////////// image input
-  std::string template_image_path = pictures_dir + "meter_template/tempV.png";
+  std::string template_image_path =
+      pictures_dir + "meter_template/tempbthesis2.png";
   Image template_image(template_image_path);
 
   std::string target_image_path =
-      pictures_dir + "bthesis/pic" + target_image_number + ".JPG";
+      pictures_dir + "bthesis/roi/pic" + target_image_number + ".png";
   Image target_image(target_image_path);
 
   // for visualization
@@ -23,6 +24,7 @@ int main() {
   //  target_image.show();
   /////////////////////////
 
+  getHomography(template_image, target_image);
   cv::waitKey();
 
   return 0;
