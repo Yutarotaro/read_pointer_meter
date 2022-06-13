@@ -15,7 +15,7 @@ make -j4
 
 なんか今$git submoduleがあんま動かなかったので、とりあえずしなくても大丈夫
 
-##If run on Docker
+## If run on Docker
 
 ```bash
 docker build -t read_pointer_meter .
