@@ -14,3 +14,10 @@ make -j4
 ```
 
 なんか今$git submoduleがあんま動かなかったので、とりあえずしなくても大丈夫
+
+##If run on Docker
+
+```bash
+docker build -t read_pointer_meter .
+docker run -it --net host -e DISPLAY=host.docker.internal:0 -v /path/to/src:/read_pointer_meter 
+```
