@@ -19,6 +19,15 @@ int main() {
       pictures_dir + "bthesis/roi/pic" + target_image_number + ".png";
   Image target_image(target_image_path);
 
+  // template_imageとtarget_imageの大きさを揃える（その方がマッチングの精度が上がったので）
+  double rate =
+      std::max((double)template_image.image.cols / target_image.image.cols,
+               (double)template_image.image.rows / target_image.image.rows);
+  cv::resize(target_image.image, target_image.image, cv::Size(), rate, rate);
+
+  template_image.detectKeyPoints();
+  target_image.detectKeyPoints();
+
   // for visualization
   //  template_image.show();
   //  target_image.show();

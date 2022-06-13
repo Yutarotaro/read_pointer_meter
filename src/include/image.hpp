@@ -23,14 +23,12 @@ public:
     }
     name = path.substr(path.size() -
                        9); //暫定的に9にしてるだけで意味はこれっぽっちもない
-
-    detectKeyPoints();
   }
 
   //可視化用
   void show() { cv::imshow(name, image); };
 
-  //特徴点計算　コンストラクタから呼び出す
+  //特徴点計算
   void detectKeyPoints() {
     feature = cv::AKAZE::create();
     feature->detectAndCompute(image, cv::Mat(), keypoints, descriptors);
