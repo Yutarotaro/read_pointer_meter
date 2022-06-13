@@ -19,5 +19,5 @@ make -j4
 
 ```bash
 docker build -t read_pointer_meter .
-docker run -it --net host -e DISPLAY=host.docker.internal:0 -v /path/to/src:/read_pointer_meter 
-```
+docker run -it --net host -e DISPLAY=host.docker.internal:0 -v /path/to/src:/read_pointer_meter bash
+``` 
