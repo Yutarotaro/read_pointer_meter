@@ -1,19 +1,20 @@
 cmake_minimum_required(VERSION 2.8)
 project(MyOpenCVProject)
 
+add_definitions( -std=c++17 -Wall )
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
+
 # Create Main project
 set(SOURCES
     main.cpp
 )
 
-set(HEADERS
-    # main.h
-)
-
 add_executable(main
     ${SOURCES}
-    ${HEADERS}
 )
+
+target_include_directories(main PRIVATE include)
 
 
 # For OpenCV

@@ -1,10 +1,15 @@
+#include "homography.hpp"
+#include "read.hpp"
 #include <opencv2/opencv.hpp>
-#include <stdio.h>
+#include <string>
+
+const std::string pictures_dir = "../../pictures/";
 
 int main() {
-  cv::Mat image = cv::imread("../lena.jpg", 1);
-  cv::imshow("Display", image);
 
-  cv::waitKey(0);
+  cv::Mat template_image = cv::imread(pictures_dir + "lena.jpg", 1);
+  cv::imshow("D", template_image);
+  cv::waitKey();
+
   return 0;
 }

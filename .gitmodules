@@ -1,0 +1,6 @@
+[submodule "src/external/json"]
+	path = src/external/json
+	url = git@github.com:nlohmann/json.git
+[submodule "src/external/cmdline"]
+	path = src/external/cmdline
+	url = git@github.com:tanakh/cmdline.git
