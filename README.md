@@ -1,4 +1,8 @@
 # read_pointer_meter
+C++ project for Pointer Meter Reading
+
+## Enviroment
+linux, MacOS or docker 
 
 # Usage
 
