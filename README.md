@@ -6,6 +6,7 @@ linux, MacOS or docker
 
 ## Dependency
 OpenCV 3.4.10
+
 prebuild docker image → https://hub.docker.com/r/boredfunuke/opencv
 
 # Usage
@@ -25,5 +26,5 @@ make -j4
 
 ```bash
 docker build -t pointer_meter .
-docker run -it --net host -e DISPLAY=host.docker.internal:0 -v /path/to/src:/read_pointer_meter pointer_meter
+docker run -it --net host -e DISPLAY=host.docker.internal:0 -v /fullpath/to/read_pointer_meter:/read_pointer_meter pointer_meter
 ``` 
