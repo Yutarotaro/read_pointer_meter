@@ -4,6 +4,10 @@ C++ project for Pointer Meter Reading
 ## Enviroment
 linux, MacOS or docker 
 
+## Dependency
+OpenCV 3.4.10
+prebuild docker image → https://hub.docker.com/r/boredfunuke/opencv
+
 # Usage
 
 ```bash
