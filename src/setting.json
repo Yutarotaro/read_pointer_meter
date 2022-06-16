@@ -1,9 +1,9 @@
 {
   "meter_params": {
     "front_value": -0.04,
-	"front_rad":0.4877,
+    "front_rad": 0.4877,
     "k": 0.0213,
-	"template_image_path":"meter_template/tempbthesis2.png",
-	"target_image_path": "bthesis/roi/pic185.png"
+    "template_image_path": "meter_template/tempbthesis2.png",
+    "target_image_path": "bthesis/roi/pic90.png"
   }
 }
