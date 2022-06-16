@@ -1,6 +1,0 @@
-[submodule "src/external/AdaptiveIntegralThresholding"]
-	path = src/external/AdaptiveIntegralThresholding
-	url = git@github.com:phryniszak/AdaptiveIntegralThresholding.git
-[submodule "src/external/object_detection_tools"]
-	path = src/external/object_detection_tools
-	url = git@github.com:karaage0703/object_detection_tools.git
