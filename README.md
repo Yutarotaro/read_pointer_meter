@@ -13,9 +13,7 @@ prebuild docker image → https://hub.docker.com/r/boredfunuke/opencv
 
 ```bash
 git clone git@github.com:Yutarotaro/read_pointer_meter.git
-cd read_pointer_meter
-git submodule update --init --recursive
-cd src
+cd read_pointer_meter/src
 mkdir build && cd build
 cmake ..
 make -j4
