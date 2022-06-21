@@ -22,5 +22,5 @@ make -j4
 
 ```bash
 docker build -t pointer_meter .
-docker run -it --net host -e DISPLAY=host.docker.internal:0 -v /fullpath/to/read_pointer_meter:/read_pointer_meter pointer_meter
+docker run -it --net host -e DISPLAY=host.docker.internal:0 -v $(pwd):/read_pointer_meter pointer_meter
 ``` 
